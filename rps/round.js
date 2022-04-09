@@ -29,6 +29,20 @@ class Round{
     getComputerSelection() {
         //*********************************ADD CODE HERE *************************************/
         // Use Math.floor and select a random Selections enumerator from above 
+        let random = Math.floor(Math.random() * 3); //Get a random number from 0-2.
+        switch (random)
+        {
+            case 0:
+                return Selections.ROCK;
+                break;
+            case 1:
+                return Selections.PAPER;
+                break;
+            case 2:
+                return Selections.SCISSORS;
+                 break;
+
+        }
     }
 
     /**
@@ -40,6 +54,42 @@ class Round{
     determineWinner() {
         //*********************************ADD CODE HERE *************************************/
         // Use this.playerSelection and this.computerSelection to return the appropriate outcome from the Outcomes enumerator above.
+        switch (this.playerSelection)
+        {
+            case "rock":
+                if(this.computerSelection === "paper")
+                {
+                    return Outcomes.COMPUTER_WINS;
+                } else if(this.computerSelection === "rock")
+                {
+                    return Outcomes.TIE;
+                } else {
+                    return Outcomes.PLAYER_WINS;
+                }
+                break;
+            case "paper":
+                if(this.computerSelection === "scissors")
+                {
+                    return Outcomes.COMPUTER_WINS;
+                } else if(this.computerSelection === "paper")
+                {
+                    return Outcomes.TIE;
+                } else {
+                    return Outcomes.PLAYER_WINS;
+                }
+                break;
+            case "scissors":
+                if(this.computerSelection === "rock")
+                {
+                    return Outcomes.COMPUTER_WINS;
+                } else if(this.computerSelection === "scissors")
+                {
+                    return Outcomes.TIE;
+                } else {
+                    return Outcomes.PLAYER_WINS;
+                }
+                break;
+        }
     }
 
 
